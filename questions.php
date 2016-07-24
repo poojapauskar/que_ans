@@ -9,10 +9,10 @@ echo "USN  :".$_POST["usn"];*/
 <title>Questions</title>
 <body>
 <script type="text/javascript">
-/*window.onload=counter;
+window.onload=counter;
 function counter()
 {
-var seconds = 60;
+var seconds = 3600;
 countDown();
 function countDown()
 {
@@ -29,23 +29,62 @@ document.getElementById("submit").click();
 }
 
 }
-}*/
+}
 </script>
 
 
+
 <?php
+
+$array1=array();
+$array2=array();
+$array1= UniqueRandomNumbersWithinRange(1,10,2);
+$array2= UniqueRandomNumbersWithinRange(21,30,8);
+
+function UniqueRandomNumbersWithinRange($min, $max, $quantity) {
+    $numbers = range($min, $max);
+    shuffle($numbers);
+    return array_slice($numbers, 0, $quantity);
+}
+
+/*print_r($array1);
+print_r($array2);*/
+/*echo $array1[0];
+echo $array2[1];*/
+
+$string1=$array1[0].",".$array1[1];
+$string2=$array2[0].",".$array2[1].",".$array2[2].",".$array2[3].",".$array2[4].",".$array2[5].",".$array2[6].",".$array2[7].",".$array2[8];
+$string2=rtrim($string2, ",");
+// $string1=string($string1);
+// $string2=string($string2);
+
+
+/*echo $string1;echo "<br>";
+echo $string2;*/
+?>
+
+<?php 
+
+
+?>
+
+<?php
+
 $url_random_que = 'http://127.0.0.1:8000/get_random_que/';
 /*$data = array('key1' => 'value1', 'key2' => 'value2');*/
 // use key 'http' even if you send the request to https://...
 $options_random_que = array(
   'http' => array(
-    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+    'header'  => array(
+                  'INPUT: '.$string1,
+                  'MULTI: '.$string2,
+                ),
     'method'  => 'GET',
   ),
 );
 $context_random_que = stream_context_create($options_random_que);
 $output_random_que = file_get_contents($url_random_que, false,$context_random_que);
-/*var_dump($output_random_que);*/
+/*echo $output_random_que;*/
 $random_que = json_decode($output_random_que,true);
 ?>
 
@@ -91,23 +130,6 @@ $myArray1 = explode(',', $myString1);
   
                   <?php  } 
   ?>
-
-
-
-<h3>True/False questions</h3> 
-<br>
-
-  <?php 
-                    for ($x = 0; $x < count($random_que[0]['true_false']); $x++) { ?>
-                        
-                        <input type="hidden" name=<?php echo "true_false_que".$x ?> value=<?php echo $random_que[0]['true_false'][$x]['question_id'] ?> ></option>
-                        <?php echo $random_que[0]['true_false'][$x]['question'] ?><br>
-                        <input type="radio" name=<?php echo "true_false_ans".$x ?> value="true">True
-                        <input type="radio" name=<?php echo "true_false_ans".$x ?> value="false">False<br>
-  
-                  <?php  } 
-  ?>
-
 
 
 <h3>Descriptive questions</h3> 
