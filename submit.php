@@ -39,7 +39,7 @@ echo $_POST['usn'];*/
 <?php /*echo $questions;echo $answers;*/ ?>
 
 <?php
-		$url8 = 'http://127.0.0.1:8000/que_ans_list/';
+		$url8 = 'https://que-ans-project.herokuapp.com/que_ans_list/';
         $data8 = array('name' => $_POST['name'],'usn' => $_POST['usn'],'question_list' => $questions,'answer_list' => $answers);
         // use key 'http' even if you send the request to https://...
         $options8 = array(
