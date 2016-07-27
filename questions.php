@@ -16,7 +16,10 @@ var seconds = 3600;
 countDown();
 function countDown()
 {
-document.getElementById("remain").innerHTML=seconds+"    seconds";
+
+  min= Math.floor(seconds/60);
+  sec= seconds%60;
+document.getElementById("remain").innerHTML=min+"    m :"+sec+"    s";
 if(seconds>0)
 {
 seconds=seconds - 1;
