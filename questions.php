@@ -41,8 +41,12 @@ document.getElementById("submit").click();
 
 $array1=array();
 $array2=array();
-$array1= UniqueRandomNumbersWithinRange(1,10,2);
-$array2= UniqueRandomNumbersWithinRange(21,30,8);
+$array3=array();
+$array4=array();
+$array1= UniqueRandomNumbersWithinRange(1,30,3);
+$array2= UniqueRandomNumbersWithinRange(31,60,3);
+$array3= UniqueRandomNumbersWithinRange(61,90,3);
+$array4= UniqueRandomNumbersWithinRange(91,100,1);
 
 function UniqueRandomNumbersWithinRange($min, $max, $quantity) {
     $numbers = range($min, $max);
@@ -55,9 +59,14 @@ print_r($array2);*/
 /*echo $array1[0];
 echo $array2[1];*/
 
-$string1=$array1[0].",".$array1[1];
-$string2=$array2[0].",".$array2[1].",".$array2[2].",".$array2[3].",".$array2[4].",".$array2[5].",".$array2[6].",".$array2[7].",".$array2[8];
+$string1=$array1[0].",".$array1[1].",".$array1[2];
+$string1=rtrim($string1, ",");
+$string2=$array2[0].",".$array2[1].",".$array2[2];
 $string2=rtrim($string2, ",");
+$string3=$array3[0].",".$array3[1].",".$array3[2];
+$string3=rtrim($string3, ",");
+$string4=$array4[0].",".$array4[1].",".$array4[2];
+$string4=rtrim($string4, ",");
 // $string1=string($string1);
 // $string2=string($string2);
 
@@ -79,8 +88,10 @@ $url_random_que = 'https://que-ans-project.herokuapp.com/get_random_que/';
 $options_random_que = array(
   'http' => array(
     'header'  => array(
-                  'INPUT: '.$string1,
-                  'MULTI: '.$string2,
+                  'MULTI1: '.$string1,
+                  'MULTI2: '.$string2,
+                  'MULTI3: '.$string3,
+                  'INPUT: '.$string4,
                 ),
     'method'  => 'GET',
   ),
@@ -113,18 +124,67 @@ $random_que = json_decode($output_random_que,true);
 <h3>Multiple choice questions</h3> 
 <br>
 
+<h2>Easy</h2>
+
   <?php 
-                    for ($x = 0; $x < count($random_que[0]['multi_choice']); $x++) { ?>
+                    for ($x = 0; $x < count($random_que[0]['multi_choice_easy']); $x++) { ?>
 <?php 
  
-$q= str_replace('{','',$random_que[0]['multi_choice'][$x]['options']);
+$q= str_replace('{','',$random_que[0]['multi_choice_easy'][$x]['options']);
 $r= str_replace('}','',$q);
 $myString1=$r;
 $myArray1 = explode(',', $myString1);
 // var_dump($myArray1);
 
 ?>
-                        <input type="hidden" name=<?php echo "multiple_que".$x ?> value=<?php echo $random_que[0]['multi_choice'][$x]['question_id'] ?> ></option>
+                        <input type="hidden" name=<?php echo "multiple_que".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['question_id'] ?> ></option>
+                        <?php echo $random_que[0]['multi_choice'][$x]['question'] ?><br>
+                        <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
+                        <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
+                        <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?>
+                        <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[3] ?>><?php echo $myArray1[3] ?><br>
+  
+                  <?php  } 
+  ?>
+
+<h2>Medium</h2>
+
+  <?php 
+                    for ($x = 0; $x < count($random_que[0]['multi_choice_medium']); $x++) { ?>
+<?php 
+ 
+$q= str_replace('{','',$random_que[0]['multi_choice_medium'][$x]['options']);
+$r= str_replace('}','',$q);
+$myString1=$r;
+$myArray1 = explode(',', $myString1);
+// var_dump($myArray1);
+
+?>
+                        <input type="hidden" name=<?php echo "multiple_que".$x ?> value=<?php echo $random_que[0]['multi_choice_medium'][$x]['question_id'] ?> ></option>
+                        <?php echo $random_que[0]['multi_choice'][$x]['question'] ?><br>
+                        <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
+                        <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
+                        <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?>
+                        <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[3] ?>><?php echo $myArray1[3] ?><br>
+  
+                  <?php  } 
+  ?>
+
+
+<h2>Difficult</h2>
+
+  <?php 
+                    for ($x = 0; $x < count($random_que[0]['multi_choice_difficult']); $x++) { ?>
+<?php 
+ 
+$q= str_replace('{','',$random_que[0]['multi_choice_difficult'][$x]['options']);
+$r= str_replace('}','',$q);
+$myString1=$r;
+$myArray1 = explode(',', $myString1);
+// var_dump($myArray1);
+
+?>
+                        <input type="hidden" name=<?php echo "multiple_que".$x ?> value=<?php echo $random_que[0]['multi_choice_difficult'][$x]['question_id'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice'][$x]['question'] ?><br>
                         <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
                         <input type="radio" name=<?php echo "multiple_ans".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
