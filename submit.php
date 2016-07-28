@@ -5,42 +5,110 @@
 $questions = array();
 $answers = array();
 
+/*echo $_POST['firstname'];
+echo $_POST['multiple_choice_easy_count'];
+echo $_POST['multiple_choice_medium_count'];
+echo $_POST['multiple_choice_difficult_count'];*/
+
+
 /*echo $_POST['name'];
 echo $_POST['usn'];*/
-                    for ($x = 0; $x < $_POST['multiple_que_count']; $x++) { ?>
-                    <!--	<?php echo $_POST['multiple_que'.$x]; ?><br>
-                    	<?php echo $_POST['multiple_ans'.$x]; ?><br><br> -->
+                    for ($x = 0; $x < $_POST['multiple_choice_easy_count']; $x++) { ?>
+                    <!--	<?php echo $_POST['multiple_que_easy'.$x]; ?><br>
+                    	<?php echo $_POST['multiple_ans_easy'.$x]; ?><br><br>  -->
 
-                    <?php	array_push($questions, $_POST['multiple_que'.$x]);
-                    	array_push($answers, $_POST['multiple_ans'.$x]); ?>
+                    <?php	
+                        array_push($questions, $_POST['multiple_que_easy'.$x]);
+                    
+
+                    if($_POST['multiple_ans_easy'.$x] == ''){
+                         array_push($answers, '');
+                        
+                    }else{
+                       array_push($answers, $_POST['multiple_ans_easy'.$x]); 
+                    }
+                    
+                    	?>
 
 <?php }?>
 
 <?php 
-                    for ($x = 0; $x < $_POST['true_false_que_count']; $x++) { ?>
-                    <!--	<?php echo $_POST['true_false_que'.$x]; ?><br>
-                    	<?php echo $_POST['true_false_ans'.$x]; ?><br><br>  -->
+                    for ($x = 0; $x < $_POST['multiple_choice_medium_count']; $x++) { ?>
+                	<!--<?php echo $_POST['multiple_que_medium'.$x]; ?><br>
+                    	<?php echo $_POST['multiple_ans_medium'.$x]; ?><br><br>   -->
 
-                    <?php	array_push($questions, $_POST['true_false_que'.$x]);
-                    	array_push($answers, $_POST['true_false_ans'.$x]); ?>
+                    <?php  
+                        array_push($questions, $_POST['multiple_que_medium'.$x]);
+                   
+
+                     if($_POST['multiple_ans_easy'.$x] == ''){
+                        
+                        array_push($answers, '');
+                    }else{
+                        array_push($answers, $_POST['multiple_ans_medium'.$x]);
+                    }
+
+
+                     
+                         ?>
 
 <?php }?>
 
 <?php 
-                    for ($x = 0; $x < $_POST['input_que_count']; $x++) { ?>
-                    <!--	<?php echo $_POST['input_que'.$x]; ?><br>
-                    	<?php echo $_POST['input_ans'.$x]; ?><br><br>  -->
+                    for ($x = 0; $x < $_POST['multiple_choice_difficult_count']; $x++) { ?>
+                   <!-- <?php echo $_POST['multiple_que_difficult'.$x]; ?><br>
+                    	<?php echo $_POST['multiple_ans_difficult'.$x]; ?><br><br> -->
 
-                    <?php	array_push($questions, $_POST['input_que'.$x]);
-                    	array_push($answers, $_POST['input_ans'.$x]); ?>
+
+
+                     <?php 
+
+                        array_push($questions, $_POST['multiple_que_difficult'.$x]);
+                   
+
+
+                     if($_POST['multiple_ans_easy'.$x] == ''){
+                       
+                        array_push($answers, '');
+                    }else{
+                        array_push($answers, $_POST['multiple_ans_difficult'.$x]);
+                    }
+                     
+                         ?>
+
+<?php }?>
+
+<?php 
+                    for ($x = 0; $x < 1; $x++) { ?>
+                  <!-- <?php echo $_POST['input_que'.$x]; ?><br>
+                        <?php echo $_POST['input_ans'.$x]; ?><br><br> -->
+
+
+
+
+                     <?php  
+                      array_push($questions, $_POST['input_que'.$x]);
+                   
+
+                    if($_POST['input_que'.$x] == ''){
+                     array_push($answers, '');
+                    }else{
+                        
+                         array_push($answers, $_POST['input_ans'.$x]); 
+                    }
+
+                    ?>
+                     
+                     
+                       
 
 <?php }?>
 
 <?php /*echo $questions;echo $answers;*/ ?>
 
 <?php
-		$url8 = 'https://que-ans-project.herokuapp.com/que_ans_list/';
-        $data8 = array('name' => $_POST['name'],'usn' => $_POST['usn'],'question_list' => $questions,'answer_list' => $answers);
+		$url8 = 'http://127.0.0.1:8000/que_ans_list/';
+        $data8 = array('firstname' => $_POST['firstname'],'lastname' => $_POST['lastname'],'email' => $_POST['email'],'phone' => $_POST['phone'],'usn' => $_POST['usn'],'question_list' => $questions,'answer_list' => $answers);
         // use key 'http' even if you send the request to https://...
         $options8 = array(
           'http' => array(
