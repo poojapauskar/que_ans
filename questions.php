@@ -82,7 +82,7 @@ echo $string2;*/
 
 <?php
 
-$url_random_que = 'http://127.0.0.1:8000/get_random_que/';
+$url_random_que = 'https://que-ans-project.herokuapp.com/get_random_que/';
 /*$data = array('key1' => 'value1', 'key2' => 'value2');*/
 // use key 'http' even if you send the request to https://...
 $options_random_que = array(
