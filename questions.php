@@ -148,6 +148,7 @@ $myArray1 = explode(',', $myString1);
 
 ?>
                         <input type="hidden" name=<?php echo "multiple_que_easy".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['question_id'] ?> ></option>
+                        <input type="hidden" name=<?php echo "multiple_correct_ans_easy".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['correct_ans'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice_easy'][$x]['question'] ?><br>
                         <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
                         <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
@@ -171,6 +172,7 @@ $myArray1 = explode(',', $myString1);
 
 ?>
                         <input type="hidden" name=<?php echo "multiple_que_medium".$x ?> value=<?php echo $random_que[0]['multi_choice_medium'][$x]['question_id'] ?> ></option>
+                        <input type="hidden" name=<?php echo "multiple_correct_ans_medium".$x ?> value=<?php echo $random_que[0]['multi_choice_medium'][$x]['correct_ans'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice_medium'][$x]['question'] ?><br>
                         <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
                         <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
@@ -195,6 +197,7 @@ $myArray1 = explode(',', $myString1);
 
 ?>
                         <input type="hidden" name=<?php echo "multiple_que_difficult".$x ?> value=<?php echo $random_que[0]['multi_choice_difficult'][$x]['question_id'] ?> ></option>
+                        <input type="hidden" name=<?php echo "multiple_correct_ans_difficult".$x ?> value=<?php echo $random_que[0]['multi_choice_difficult'][$x]['correct_ans'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice_difficult'][$x]['question'] ?><br>
                         <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
                         <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
