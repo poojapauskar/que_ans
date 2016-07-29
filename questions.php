@@ -7,6 +7,27 @@ echo "USN  :".$_POST["usn"];*/
 
 <html>
 <title>Questions</title>
+
+<head>
+<style>
+#submit{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+h2{
+  color:#4CAF50; 
+}
+h5{
+  text-decoration: underline;
+}
+</style>
+</head>
 <body>
 <script type="text/javascript">
 window.onload=counter;
@@ -106,16 +127,15 @@ $random_que = json_decode($output_random_que,true);
 ?>
 
 
-<br>
-<br>
+
 
 <h2 style="">Time Left</h2>
 <h1 style="" id="remain"></h1>
-<h4 style=""><?php echo "First Name :"; echo $_POST["firstname"]; ?></h4>
+<!-- <h4 style=""><?php echo "First Name :"; echo $_POST["firstname"]; ?></h4>
 <h4 style=""><?php echo "Last Name  :"; echo $_POST["lastname"]; ?></h4>
 <h4 style=""><?php echo "Email  :"; echo $_POST["email"]; ?></h4>
 <h4 style=""><?php echo "Phone  :"; echo $_POST["phone"]; ?></h4>
-<h4 style=""><?php echo "USN  :"; echo $_POST["usn"]; ?></h4>
+<h4 style=""><?php echo "USN  :"; echo $_POST["usn"]; ?></h4> -->
 
 <form method="post" name="myForm" id="myForm" action="submit.php">  
  <input  type="hidden" name="firstname" value=<?php echo $_POST["firstname"]; ?>>
@@ -130,11 +150,11 @@ $random_que = json_decode($output_random_que,true);
 <input  type="hidden" name="input_count" value=<?php echo count($random_que[0]['input']); ?>>
 
  
-
-<h3>Multiple choice questions</h3> 
 <br>
+<h2>Multiple choice questions</h2> 
 
-<h2>Easy</h2>
+
+<h5>Easy</h5>
 
   <?php 
                     for ($x = 0; $x < count($random_que[0]['multi_choice_easy']); $x++) { ?>
@@ -150,15 +170,15 @@ $myArray1 = explode(',', $myString1);
                         <input type="hidden" name=<?php echo "multiple_que_easy".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['question_id'] ?> ></option>
                         <input type="hidden" name=<?php echo "multiple_correct_ans_easy".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['correct_ans'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice_easy'][$x]['question'] ?><br>
-                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
-                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
-                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?>
+                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?><br>
+                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?><br>
+                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?><br>
                         <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[3] ?>><?php echo $myArray1[3] ?><br><br>
   
                   <?php  } 
   ?>
 
-<h2>Medium</h2>
+<h5>Medium</h5>
 
   <?php 
                     for ($x = 0; $x < count($random_que[0]['multi_choice_medium']); $x++) { ?>
@@ -174,16 +194,16 @@ $myArray1 = explode(',', $myString1);
                         <input type="hidden" name=<?php echo "multiple_que_medium".$x ?> value=<?php echo $random_que[0]['multi_choice_medium'][$x]['question_id'] ?> ></option>
                         <input type="hidden" name=<?php echo "multiple_correct_ans_medium".$x ?> value=<?php echo $random_que[0]['multi_choice_medium'][$x]['correct_ans'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice_medium'][$x]['question'] ?><br>
-                        <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
-                        <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
-                        <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?>
+                        <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?><br>
+                        <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?><br>
+                        <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?><br>
                         <input type="radio" name=<?php echo "multiple_ans_medium".$x ?> value=<?php echo $myArray1[3] ?>><?php echo $myArray1[3] ?><br><br>
   
                   <?php  } 
   ?>
 
 
-<h2>Difficult</h2>
+<h5>Difficult</h5>
 
   <?php 
                     for ($x = 0; $x < count($random_que[0]['multi_choice_difficult']); $x++) { ?>
@@ -199,17 +219,18 @@ $myArray1 = explode(',', $myString1);
                         <input type="hidden" name=<?php echo "multiple_que_difficult".$x ?> value=<?php echo $random_que[0]['multi_choice_difficult'][$x]['question_id'] ?> ></option>
                         <input type="hidden" name=<?php echo "multiple_correct_ans_difficult".$x ?> value=<?php echo $random_que[0]['multi_choice_difficult'][$x]['correct_ans'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice_difficult'][$x]['question'] ?><br>
-                        <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?>
-                        <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?>
-                        <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?>
+                        <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?><br>
+                        <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?><br>
+                        <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?><br>
                         <input type="radio" name=<?php echo "multiple_ans_difficult".$x ?> value=<?php echo $myArray1[3] ?>><?php echo $myArray1[3] ?><br><br>
   
                   <?php  } 
   ?>
 
 
-<h3>Descriptive questions</h3> 
 <br>
+<h2>Descriptive question</h2> 
+
 
   <?php 
                     for ($x = 0; $x < count($random_que[0]['input']); $x++) { ?>

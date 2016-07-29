@@ -18,15 +18,20 @@
 </head>
 <body>
 <form method="post" action="questions.php">
-First Name:  <input type="text" name="firstname" required/><br>
+<label>First Name</label><br>
+<input type="text" name="firstname" required/><br>
 <br>
-Last Name:  <input type="text" name="lastname" required/><br>
+<label>Last Name</label><br>
+<input type="text" name="lastname" required/><br>
 <br>
-Email:  <input type="text" name="email" required/><br>
+<label>Email</label><br>
+<input type="text" name="email" required/><br>
 <br>
-Phone:  <input type="text" name="phone" required/><br>
+<label>Phone</label><br>
+<input type="text" name="phone" required/><br>
 <br>
-USN :  <input type="text" name="usn" required/><br><br><br>
+<label>USN</label><br>
+<input type="text" name="usn" required/><br><br><br>
 
 
 
