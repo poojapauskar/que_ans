@@ -57,7 +57,7 @@ margin-left:-10px;
     }
 
 
-    if(z2.match(alpha_num)){
+    if(z2.match(alpha_num) == null){
        alert("USN must contain only letters and numbers");
         return false; 
     }
