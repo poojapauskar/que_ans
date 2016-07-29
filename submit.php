@@ -24,7 +24,7 @@ echo $_POST['usn'];*/
                     
 
                     if($_POST['multiple_ans_easy'.$x] == ''){
-                         array_push($answers, ' ');
+                         array_push($answers, 'Not answered');
                         
                     }else{
                        array_push($answers, $_POST['multiple_ans_easy'.$x]); 
@@ -44,9 +44,9 @@ echo $_POST['usn'];*/
                         array_push($correct_answers, $_POST['multiple_correct_ans_medium'.$x]);
                    
 
-                     if($_POST['multiple_ans_easy'.$x] == ''){
+                     if($_POST['multiple_ans_medium'.$x] == ''){
                         
-                        array_push($answers, ' ');
+                        array_push($answers, 'Not answered');
                     }else{
                         array_push($answers, $_POST['multiple_ans_medium'.$x]);
                     }
@@ -71,9 +71,9 @@ echo $_POST['usn'];*/
                    
 
 
-                     if($_POST['multiple_ans_easy'.$x] == ''){
+                     if($_POST['multiple_ans_difficult'.$x] == ''){
                        
-                        array_push($answers, ' ');
+                        array_push($answers, 'Not answered');
                     }else{
                         array_push($answers, $_POST['multiple_ans_difficult'.$x]);
                     }
@@ -96,7 +96,7 @@ echo $_POST['usn'];*/
                    
 
                     if($_POST['input_que'.$x] == ''){
-                     array_push($answers, ' ');
+                     array_push($answers, 'Not answered');
                     }else{
                         
                          array_push($answers, $_POST['input_ans'.$x]); 
