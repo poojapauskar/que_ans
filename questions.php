@@ -10,7 +10,7 @@ echo "USN  :".$_POST["usn"];*/
 
 <head>
 <style>
-#submit{
+#confirm{
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -244,9 +244,32 @@ $myArray1 = explode(',', $myString1);
 <br>
 <br>
   
-  
 
-<input type="submit" name="submit" id="submit" value="Submit">  
+<script type="text/javascript">
+  function confirm_box(){
+    var res = confirm('Do you really want to submit the form?');
+    if(!res){ 
+/*      alert("hi");*/
+       return false; 
+
+    }else{ 
+   /*   alert("hello");*/
+       /* return true;*/
+       /*form.confirm.disabled = true;*/
+
+        document.getElementById("submit").click();
+
+
+    }
+  }
+
+
+</script>
+
+
+<button type="button" onclick="confirm_box()" name="confirm" id="confirm" value="Confirm">Confirm</button>  
+
+<input style="display:none;" type="submit" name="submit" id="submit" value="Submit">  
 
 
 </form>
