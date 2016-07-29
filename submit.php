@@ -1,5 +1,7 @@
 <html>
 
+
+
 <?php 
 
 $questions = array();
@@ -129,12 +131,41 @@ echo $_POST['usn'];*/
         if($arr9 != ''){
           echo "Thank You";
         }else{
-          echo "Please go back n submit the form again"; 
+          echo "Please go back and submit the form again"; 
         }
 ?>
 
 
 
-<title>Thank You</title>
-<!-- <h1>Thank You</h1> -->
+<head>
+  <title>Thank You</title>
+
+<style type="text/css">
+  .navbar{
+
+width:100%;
+padding: 2%;
+padding-bottom: 6%;
+background-color:rgba(255, 255, 255);
+margin-top: -10px;
+margin-left:-10px;
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Bitjini_logo" src="bitjini_apps_more_logo.png" style="float: right;
+    margin: -6px 30px;">
+      </a>
+    </div>
+  </div>
+</nav>
+ <!--  <p style="text-align: center;color: #66CC33;font-size: 60px;margin-top: 150px;">Thank You</p>
+
+  <br>
+
+  <p style="text-align: center;color: #66CC33;font-size: 30px;margin-top: 40px;">Please go back and submit the form again</p> -->
 </html>

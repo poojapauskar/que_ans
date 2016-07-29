@@ -10,6 +10,14 @@ echo "USN  :".$_POST["usn"];*/
 
 <head>
 <style>
+
+h2{
+  color:#4CAF50; 
+}
+h5{
+  text-decoration: underline;
+}
+
 #confirm{
     background-color: #4CAF50; /* Green */
     border: none;
@@ -19,12 +27,16 @@ echo "USN  :".$_POST["usn"];*/
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: auto 30px ;
 }
-h2{
-  color:#4CAF50; 
-}
-h5{
-  text-decoration: underline;
+.navbar{
+
+width:100%;
+padding: 2%;
+padding-bottom: 6%;
+background-color:rgba(255, 255, 255);
+margin-top: -10px;
+margin-left:-10px;
 }
 </style>
 </head>
@@ -127,7 +139,16 @@ $random_que = json_decode($output_random_que,true);
 ?>
 
 
-
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Bitjini_logo" src="bitjini_apps_more_logo.png" style="float: right;
+    margin: -6px 30px;">
+      </a>
+    </div>
+  </div>
+</nav>
 
 <h2 style="">Time Left</h2>
 <h1 style="" id="remain"></h1>

@@ -12,6 +12,16 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: auto 30px ;
+}
+.navbar{
+
+width:100%;
+padding: 2%;
+padding-bottom: 6%;
+background-color:rgba(255, 255, 255);
+margin-top: -10px;
+margin-left:-10px;
 }
 </style>
 
@@ -21,7 +31,7 @@
     var n2 = document.forms["form1"]["lastname"].value;
     var x = document.forms["form1"]["phone"].value;
     var y = document.forms["form1"]["email"].value;
-    var z = document.forms["form1"]["usn"].value;
+    var z2 = document.forms["form1"]["usn"].value;
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var letters = /^[a-zA-Z\s]*$/;
     var numbers = /^[0-9\s]*$/;
@@ -45,11 +55,13 @@
         alert("Phone no. must contain 7-15 digits");
         return false;
     }
-    if((z !== "") && (z.match(alpha_num) == null)){
+
+
+    if(z2.match(alpha_num)){
        alert("USN must contain only letters and numbers");
         return false; 
     }
-    if((z !== "") && (z.length < 10 || z.length >10)){
+    if(z2.length != 10){
         /*alert(x);*/
         /*window.location.href = "#popup_contain_seven1";*/
         alert("USN must contain 10 digits");
@@ -67,7 +79,20 @@
 
 </head>
 <body>
-<form id="form1" name="form1" method="post" action="questions.php">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Bitjini_logo" src="bitjini_apps_more_logo.png" style="float: right;
+    margin: -6px 30px;">
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<form id="form1" name="form1" method="post" action="questions.php" style="margin: 60px auto;width: 15%;">
 <label>First Name</label><br>
 <input type="text" name="firstname" required/><br>
 <br>
