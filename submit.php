@@ -127,12 +127,14 @@ echo $_POST['usn'];*/
         /*echo $result8;*/
         $arr9 = json_decode($result8,true);
         if($arr9 != ''){
-          /*echo "City added";*/
+          echo "Thank You";
+        }else{
+          echo "Please go back n submit the form again"; 
         }
 ?>
 
 
 
 <title>Thank You</title>
-<h1>Thank You</h1>
+<!-- <h1>Thank You</h1> -->
 </html>
