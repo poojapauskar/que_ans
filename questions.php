@@ -216,7 +216,7 @@ $myArray1 = explode(',', $myString1);
                         
                         <input type="hidden" name=<?php echo "input_que".$x ?> value=<?php echo $random_que[0]['input'][$x]['question_id'] ?> ></option>
                         <?php echo $random_que[0]['input'][$x]['question'] ?><br>
-                        <textarea name=<?php echo "input_ans".$x ?> rows="5" cols="40"><?php echo $comment;?></textarea><br>
+                        <textarea rows="30" cols="70" name=<?php echo "input_ans".$x ?> rows="5" cols="40"><?php echo $comment;?></textarea><br>
   
                   <?php  } 
   ?>
