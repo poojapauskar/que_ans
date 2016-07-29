@@ -10,7 +10,7 @@ echo "USN  :".$_POST["usn"];*/
 
 <head>
 <style>
-#confirm{
+#submit{
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -26,9 +26,30 @@ h2{
 h5{
   text-decoration: underline;
 }
+
+.navbar{
+
+width:100%;
+padding: 2%;
+padding-bottom: 6%;
+background-color:rgba(255, 255, 255);
+margin-top: -10px;
+margin-left:-10px;
+}
 </style>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Bitjini_logo" src="bitjini_apps_more_logo.png" style="float: right;
+    margin: -6px 30px;">
+      </a>
+    </div>
+  </div>
+</nav>
+
 <script type="text/javascript">
 window.onload=counter;
 function counter()
@@ -244,32 +265,9 @@ $myArray1 = explode(',', $myString1);
 <br>
 <br>
   
+  
 
-<script type="text/javascript">
-  function confirm_box(){
-    var res = confirm('Do you really want to submit the form?');
-    if(!res){ 
-/*      alert("hi");*/
-       return false; 
-
-    }else{ 
-   /*   alert("hello");*/
-       /* return true;*/
-       /*form.confirm.disabled = true;*/
-
-        document.getElementById("submit").click();
-
-
-    }
-  }
-
-
-</script>
-
-
-<button type="button" onclick="confirm_box()" name="confirm" id="confirm" value="Confirm">Confirm</button>  
-
-<input style="display:none;" type="submit" name="submit" id="submit" value="Submit">  
+<input type="submit" name="submit" id="submit" value="Submit">  
 
 
 </form>
