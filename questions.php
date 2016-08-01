@@ -66,7 +66,39 @@ document.getElementById("submit").click();
 
 }
 }
+
+
+/*window.setInterval(function(){
+  document.getElementById("submit").click();
+}, 60000*60);*/
+
+
 </script>
+
+
+<?php
+
+echo $_POST['usn'];
+
+$url_check_usn = 'http://127.0.0.1:3000/check_usn_exists/';
+/*$data = array('key1' => 'value1', 'key2' => 'value2');*/
+// use key 'http' even if you send the request to https://...
+$options_check_usn = array(
+  'http' => array(
+    'header'  => array(
+                  'USN: '.$_POST['usn'],
+                ),
+    'method'  => 'GET',
+  ),
+);
+$context_check_usn = stream_context_create($options_check_usn);
+$output_check_usn = file_get_contents($url_check_usn, false,$context_check_usn);
+echo $output_check_usn;
+
+$check_usn = json_decode($output_check_usn,true);
+
+/*echo count($random_que[0]['multi_choice_easy']);*/
+?>
 
 
 
@@ -92,14 +124,36 @@ print_r($array2);*/
 /*echo $array1[0];
 echo $array2[1];*/
 
-$string1=$array1[0].",".$array1[1].",".$array1[2];
-$string1=rtrim($string1, ",");
-$string2=$array2[0].",".$array2[1].",".$array2[2];
-$string2=rtrim($string2, ",");
-$string3=$array3[0].",".$array3[1].",".$array3[2];
-$string3=rtrim($string3, ",");
-$string4=$array4[0].",".$array4[1].",".$array4[2];
-$string4=rtrim($string4, ",");
+if($check_usn[0]['question_list'] != ''){
+ $string1= $check_usn[0]['question_list'][0][0][0].",".$check_usn[0]['question_list'][0][0][1].",".$check_usn[0]['question_list'][0][0][2];
+ echo $string1;
+}else{
+ $string1=$array1[0].",".$array1[1].",".$array1[2];
+ $string1=rtrim($string1, ",");
+}
+
+if($check_usn[0]['question_list'] != ''){
+ $string2= $check_usn[0]['question_list'][0][0][3].",".$check_usn[0]['question_list'][0][0][4].",".$check_usn[0]['question_list'][0][0][5];
+}else{
+ $string2=$array2[0].",".$array2[1].",".$array2[2];
+ $string2=rtrim($string2, ",");
+}
+
+if($check_usn[0]['question_list'] != ''){
+ $string3= $check_usn[0]['question_list'][0][0][6].",".$check_usn[0]['question_list'][0][0][7].",".$check_usn[0]['question_list'][0][0][8];
+}else{
+ $string3=$array3[0].",".$array3[1].",".$array3[2];
+ $string3=rtrim($string3, ",");
+}
+
+if($check_usn[0]['question_list'] != ''){
+ $string4= $check_usn[0]['question_list'][0][0][9];
+}else{
+ $string4=$array4[0];
+ $string4=rtrim($string4, ",");
+}
+
+
 // $string1=string($string1);
 // $string2=string($string2);
 
@@ -173,30 +227,72 @@ $random_que = json_decode($output_random_que,true);
  
 <br>
 <h2>Multiple choice questions</h2> 
-
+<!-- <input type="radio" id="_1234" name="multiple0" value="abc">Abc<br> -->
 
 <h5>Easy</h5>
 
   <?php 
-                    for ($x = 0; $x < count($random_que[0]['multi_choice_easy']); $x++) { ?>
+                    for ($x = 0,$y=0; $x < count($random_que[0]['multi_choice_easy']),$y < count($random_que[0]['multi_choice_easy']); $x++,$y++) { ?>
 <?php 
  
 $q= str_replace('{','',$random_que[0]['multi_choice_easy'][$x]['options']);
 $r= str_replace('}','',$q);
 $myString1=$r;
 $myArray1 = explode(',', $myString1);
-// var_dump($myArray1);
+
+
+/*var_dump($myArray1[0]);
+var_dump($check_usn[0]['answer_list'][0][0][0]);*/
+
+
 
 ?>
+
+
                         <input type="hidden" name=<?php echo "multiple_que_easy".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['question_id'] ?> ></option>
                         <input type="hidden" name=<?php echo "multiple_correct_ans_easy".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['correct_ans'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice_easy'][$x]['question'] ?><br>
-                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[0] ?>><?php echo $myArray1[0] ?><br>
-                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[1] ?>><?php echo $myArray1[1] ?><br>
-                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[2] ?>><?php echo $myArray1[2] ?><br>
-                        <input type="radio" name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[3] ?>><?php echo $myArray1[3] ?><br><br>
+                        <input type="radio" id=<?php echo "radio1".$y ?> name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[0] ?> ><?php echo $myArray1[0] ?><br>
+                        <input type="radio" id=<?php echo "radio2".$y ?> name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[1] ?> ><?php echo $myArray1[1] ?><br>
+                        <input type="radio" id=<?php echo "radio3".$y ?> name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[2] ?> ><?php echo $myArray1[2] ?><br>
+                        <input type="radio" id=<?php echo "radio4".$y ?> name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[3] ?> ><?php echo $myArray1[3] ?><br><br>
   
-                  <?php  } 
+                  <?php  
+
+echo '<script type="text/javascript">
+        var $z=0;
+        </script>';
+
+if($myArray1[0] == $check_usn[0]['answer_list'][0][0][$y]){
+  var_dump("0th position");
+  echo '<script type="text/javascript">
+        document.getElementById("radio1".concat($z)).checked = true;
+        </script>';
+}
+if($myArray1[1] == $check_usn[0]['answer_list'][0][0][$y]){
+  var_dump("1st position");
+  echo '<script type="text/javascript">
+        document.getElementById("radio2".concat($z)).checked = true;
+        </script>';
+}
+if($myArray1[2] == $check_usn[0]['answer_list'][0][0][$y]){
+  var_dump("2nd position");
+  echo '<script type="text/javascript">
+        document.getElementById("radio3".concat($z)).checked = true;
+        </script>';
+}
+if($myArray1[3] == $check_usn[0]['answer_list'][0][0][$y]){
+  var_dump("3rd position");
+  echo '<script type="text/javascript">
+        document.getElementById("radio4".concat($z)).checked = true;
+        </script>';
+}
+
+echo '<script type="text/javascript">
+        $z++;
+        </script>';
+
+                } 
   ?>
 
 <h5>Medium</h5>

@@ -114,7 +114,7 @@ echo $_POST['usn'];*/
 <?php /*echo $questions;echo $answers;*/ ?>
 
 <?php
-		$url8 = 'https://que-ans-project.herokuapp.com/que_ans_list/';
+		    $url8 = 'http://127.0.0.1:3000/que_ans_list/';
         $data8 = array('firstname' => $_POST['firstname'],'lastname' => $_POST['lastname'],'email' => $_POST['email'],'phone' => $_POST['phone'],'usn' => $_POST['usn'],'question_list' => $questions,'answer_list' => $answers,'correct_ans_list' => $correct_answers);
         // use key 'http' even if you send the request to https://...
         $options8 = array(
@@ -133,6 +133,27 @@ echo $_POST['usn'];*/
         }else{
           echo "Please go back and submit the form again"; 
         }
+
+        /*echo $_POST['usn'];*/
+
+        $url_session_0 = 'http://127.0.0.1:3000/set_session_0/';
+        /*$data = array('key1' => 'value1', 'key2' => 'value2');*/
+        // use key 'http' even if you send the request to https://...
+        $options_session_0 = array(
+          'http' => array(
+            'header'  => array(
+                          'USN: '.$_POST['usn'],
+                        ),
+            'method'  => 'GET',
+          ),
+        );
+        $context_session_0 = stream_context_create($options_session_0);
+        $output_session_0 = file_get_contents($url_session_0, false,$context_session_0);
+        /*echo $output_session_0;*/
+
+        $session_0 = json_decode($output_session_0,true);
+        
+
 ?>
 
 
