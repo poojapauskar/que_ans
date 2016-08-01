@@ -17,8 +17,8 @@ echo $_POST['multiple_choice_difficult_count'];*/
 /*echo $_POST['name'];
 echo $_POST['usn'];*/
                     for ($x = 0; $x < $_POST['multiple_choice_easy_count']; $x++) { ?>
-                    <!--	<?php echo $_POST['multiple_que_easy'.$x]; ?><br>
-                    	<?php echo $_POST['multiple_ans_easy'.$x]; ?><br><br>  -->
+                    <?php echo $_POST['multiple_que_easy'.$x]; ?><br>
+                    	<?php echo $_POST['multiple_ans_easy'.$x]; ?><br><br>  
 
                     <?php	
                         array_push($questions, $_POST['multiple_que_easy'.$x]);
@@ -38,8 +38,8 @@ echo $_POST['usn'];*/
 
 <?php 
                     for ($x = 0; $x < $_POST['multiple_choice_medium_count']; $x++) { ?>
-                	<!--<?php echo $_POST['multiple_que_medium'.$x]; ?><br>
-                    	<?php echo $_POST['multiple_ans_medium'.$x]; ?><br><br>   -->
+                <?php echo $_POST['multiple_que_medium'.$x]; ?><br>
+                    	<?php echo $_POST['multiple_ans_medium'.$x]; ?><br><br>   
 
                     <?php  
                         array_push($questions, $_POST['multiple_que_medium'.$x]);
@@ -61,8 +61,8 @@ echo $_POST['usn'];*/
 
 <?php 
                     for ($x = 0; $x < $_POST['multiple_choice_difficult_count']; $x++) { ?>
-                   <!-- <?php echo $_POST['multiple_que_difficult'.$x]; ?><br>
-                    	<?php echo $_POST['multiple_ans_difficult'.$x]; ?><br><br> -->
+                   <?php echo $_POST['multiple_que_difficult'.$x]; ?><br>
+                    	<?php echo $_POST['multiple_ans_difficult'.$x]; ?><br><br> 
 
 
 
@@ -86,8 +86,8 @@ echo $_POST['usn'];*/
 
 <?php 
                     for ($x = 0; $x < 1; $x++) { ?>
-                  <!-- <?php echo $_POST['input_que'.$x]; ?><br>
-                        <?php echo $_POST['input_ans'.$x]; ?><br><br> -->
+                  <?php echo $_POST['input_que'.$x]; ?><br>
+                        <?php echo $_POST['input_ans'.$x]; ?><br><br> 
 
 
 
@@ -134,7 +134,7 @@ echo $_POST['usn'];*/
           echo "Please go back and submit the form again"; 
         }
 
-        /*echo $_POST['usn'];*/
+        echo $_POST['usn'];
 
         $url_session_0 = 'http://127.0.0.1:3000/set_session_0/';
         /*$data = array('key1' => 'value1', 'key2' => 'value2');*/
