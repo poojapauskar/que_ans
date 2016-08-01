@@ -252,45 +252,64 @@ var_dump($check_usn[0]['answer_list'][0][0][0]);*/
                         <input type="hidden" name=<?php echo "multiple_que_easy".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['question_id'] ?> ></option>
                         <input type="hidden" name=<?php echo "multiple_correct_ans_easy".$x ?> value=<?php echo $random_que[0]['multi_choice_easy'][$x]['correct_ans'] ?> ></option>
                         <?php echo $random_que[0]['multi_choice_easy'][$x]['question'] ?><br>
-                        <input type="radio" id=<?php echo "radio1".$y ?> name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[0] ?> ><?php echo $myArray1[0] ?><br>
-                        <input type="radio" id=<?php echo "radio2".$y ?> name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[1] ?> ><?php echo $myArray1[1] ?><br>
-                        <input type="radio" id=<?php echo "radio3".$y ?> name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[2] ?> ><?php echo $myArray1[2] ?><br>
-                        <input type="radio" id=<?php echo "radio4".$y ?> name=<?php echo "multiple_ans_easy".$x ?> value=<?php echo $myArray1[3] ?> ><?php echo $myArray1[3] ?><br><br>
-  
-                  <?php  
-
-echo '<script type="text/javascript">
+<?php                      
+/*echo '<script type="text/javascript">
         var $z=0;
-        </script>';
+        </script>';*/
 
 if($myArray1[0] == $check_usn[0]['answer_list'][0][0][$y]){
-  var_dump("0th position");
-  echo '<script type="text/javascript">
+  /*var_dump("0th position");*/
+  /*echo '<script type="text/javascript">
         document.getElementById("radio1".concat($z)).checked = true;
-        </script>';
-}
-if($myArray1[1] == $check_usn[0]['answer_list'][0][0][$y]){
-  var_dump("1st position");
-  echo '<script type="text/javascript">
-        document.getElementById("radio2".concat($z)).checked = true;
-        </script>';
-}
-if($myArray1[2] == $check_usn[0]['answer_list'][0][0][$y]){
-  var_dump("2nd position");
-  echo '<script type="text/javascript">
-        document.getElementById("radio3".concat($z)).checked = true;
-        </script>';
-}
-if($myArray1[3] == $check_usn[0]['answer_list'][0][0][$y]){
-  var_dump("3rd position");
-  echo '<script type="text/javascript">
-        document.getElementById("radio4".concat($z)).checked = true;
-        </script>';
+        </script>';*/
+  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[0].' checked="checked">'.$myArray1[0].'<br>';
+}else{
+    echo  '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[0].'>'.$myArray1[0].'<br>';
 }
 
-echo '<script type="text/javascript">
+if($myArray1[1] == $check_usn[0]['answer_list'][0][0][$y]){
+  /*var_dump("1st position");
+  echo '<script type="text/javascript">
+        document.getElementById("radio2".concat($z)).checked = true;
+        </script>';*/
+     echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[1].' checked="checked">'.$myArray1[1].'<br>';
+}else{
+       echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[1].'>'.$myArray1[1].'<br>';
+
+}
+
+if($myArray1[2] == $check_usn[0]['answer_list'][0][0][$y]){
+  /*var_dump("2nd position");
+  echo '<script type="text/javascript">
+        document.getElementById("radio3".concat($z)).checked = true;
+        </script>';*/
+      echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[2].' checked="checked">'.$myArray1[2].'<br>';
+}else{
+      echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[2].'>'.$myArray1[2].'<br>';
+
+}
+
+if($myArray1[3] == $check_usn[0]['answer_list'][0][0][$y]){
+ /* var_dump("3rd position");
+  echo '<script type="text/javascript">
+        document.getElementById("radio4".concat($z)).checked = true;
+        </script>';*/
+    echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[3].' checked="checked">'.$myArray1[3].'<br>';
+  
+}else{
+ echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[3].'>'.$myArray1[3].'<br>';
+  
+
+}  ?>                     
+                      
+                       
+                  <?php  
+
+
+
+/*echo '<script type="text/javascript">
         $z++;
-        </script>';
+        </script>';*/
 
                 } 
   ?>
