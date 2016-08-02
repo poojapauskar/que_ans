@@ -78,7 +78,7 @@ document.getElementById("submit").click();
 
 <?php
 
-echo $_POST['usn'];
+/*echo $_POST['usn'];*/
 
 $url_check_usn = 'http://127.0.0.1:3000/check_usn_exists/';
 /*$data = array('key1' => 'value1', 'key2' => 'value2');*/
@@ -93,9 +93,13 @@ $options_check_usn = array(
 );
 $context_check_usn = stream_context_create($options_check_usn);
 $output_check_usn = file_get_contents($url_check_usn, false,$context_check_usn);
-echo $output_check_usn;
+/*echo $output_check_usn;*/
 
 $check_usn = json_decode($output_check_usn,true);
+
+if($check_usn[0]['status'] == 401){
+   echo "<script> document.location.href='session_exp.php';</script>";
+}
 
 /*echo count($random_que[0]['multi_choice_easy']);*/
 ?>
