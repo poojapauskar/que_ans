@@ -166,9 +166,7 @@ if (!$response)
 
         /*echo $_POST['usn'];*/
 
-        $url_session_0 = 'http://127.0.0.1:3000/set_session_0/';
-        /*$data = array('key1' => 'value1', 'key2' => 'value2');*/
-        // use key 'http' even if you send the request to https://...
+        /*$url_session_0 = 'http://127.0.0.1:3000/set_session_0/';
         $options_session_0 = array(
           'http' => array(
             'header'  => array(
@@ -179,9 +177,8 @@ if (!$response)
         );
         $context_session_0 = stream_context_create($options_session_0);
         $output_session_0 = file_get_contents($url_session_0, false,$context_session_0);
-        /*echo $output_session_0;*/
 
-        $session_0 = json_decode($output_session_0,true);
+        $session_0 = json_decode($output_session_0,true);*/
         
 
 ?>
