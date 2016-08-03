@@ -80,9 +80,9 @@ window.setInterval(function(){
   var i_count = document.getElementById('input_count').value;
   /*alert(f1);*/
 
-  var q=[];
-  var a=[];
-  var c=[];
+  var question1 = new Array();
+  var answer1 =new Array();
+  var correct1 =new Array();
   /*alert(selection.checked);*/
 
 
@@ -94,27 +94,44 @@ window.setInterval(function(){
       var mqe = document.myForm.elements[mqe1];
       var mce = document.myForm.elements[mce1];
 
+      count=0;
+
       for(var a=0;a<4;a++){
-        count=0;
+        
 
         if(mae[a].checked==true){
           /*alert(mae[a].value);*/
-          a.push(mae[x].value);
+          var value_mae=mae[a].value;
+          /*alert(value_mae);*/
+          answer1=answer1.concat.call(value_mae);
+          /*alert(answer1);*/
+
           count++;
         };
       } 
 
-      q.push(mqe[x].value);
-      c.push(mce[x].value); 
+      var value_mqe=mqe.value;
+      question1= question1.concat(value_mqe);
+      /*console.log(question1);*/
 
+      var value_mce=mce.value;
+      correct1= correct1.concat(value_mce);
+      /*console.log(correct1);*/ 
+
+      /*alert(mqe.value);*/
       if(count == 0){
-        a.push('Not Answered');
-      }       
+        answer1=answer1.concat('Not Answered');
+        /*console.log(answer1);*/
+        /*alert("Not Answered");*/
+      } 
+      /*alert(mce.value);*/
+
+            
   }
 
-  alert(q);
-  alert(c);
-  alert(a);
+  /*alert(question1);
+  alert(answer1);
+  alert(correct1);*/
 
   /*for (var x = 0; x < mce_count; x++) { 
       mam1="multiple_ans_medium".concat(x);
