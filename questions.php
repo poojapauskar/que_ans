@@ -68,9 +68,84 @@ document.getElementById("submit").click();
 }
 
 
-/*window.setInterval(function(){
-  document.getElementById("submit").click();
-}, 5000*10);*/
+window.setInterval(function(){
+  var f1 = document.getElementById('firstname').value;
+  var l1 = document.getElementById('lastname').value;
+  var e1 = document.getElementById('email').value;
+  var p1 = document.getElementById('phone').value;
+  var u1 = document.getElementById('usn').value;
+  var mce_count = document.getElementById('multiple_choice_easy_count').value;
+  var mcm_count = document.getElementById('multiple_choice_medium_count').value;
+  var mcd_count = document.getElementById('multiple_choice_difficult_count').value;
+  var i_count = document.getElementById('input_count').value;
+  /*alert(f1);*/
+
+  var q=[];
+  var a=[];
+  var c=[];
+  /*alert(selection.checked);*/
+
+
+  for (var x = 0; x < mce_count; x++) { 
+      mae1="multiple_ans_easy".concat(x);
+      mqe1="multiple_que_easy".concat(x);
+      mce1="multiple_correct_ans_easy".concat(x);
+      var mae = document.myForm.elements[mae1];
+      var mqe = document.myForm.elements[mqe1];
+      var mce = document.myForm.elements[mce1];
+
+      for(var a=0;a<4;a++){
+        count=0;
+
+        if(mae[a].checked==true){
+          /*alert(mae[a].value);*/
+          a.push(mae[x].value);
+          count++;
+        };
+      } 
+
+      q.push(mqe[x].value);
+      c.push(mce[x].value); 
+
+      if(count == 0){
+        a.push('Not Answered');
+      }       
+  }
+
+  alert(q);
+  alert(c);
+  alert(a);
+
+  /*for (var x = 0; x < mce_count; x++) { 
+      mam1="multiple_ans_medium".concat(x);
+      mqm1="multiple_que_medium".concat(x);
+      mcm1="multiple_correct_ans_medium".concat(x);
+      var mam = document.myForm.elements[mam1];
+      var mqm = document.myForm.elements[mqm1];
+      var mcm = document.myForm.elements[mcm1];
+
+      for(var a=0;a<4;a++){
+        if(mam[a].checked==true){
+        };
+      }          
+  }
+
+  for (var x = 0; x < mce_count; x++) { 
+      mad1="multiple_ans_difficult".concat(x);
+      mqd1="multiple_que_difficult".concat(x);
+      mcd1="multiple_correct_ans_difficult".concat(x);
+      var mad = document.myForm.elements[mad1];
+      var mqd = document.myForm.elements[mqd1];
+      var mcd = document.myForm.elements[mcd1];
+
+      for(var a=0;a<4;a++){
+        if(mad[a].checked==true){
+        };
+      }          
+  }
+*/
+
+}, 5000);
 
 
 
@@ -219,16 +294,16 @@ $random_que = json_decode($output_random_que,true);
 <h4 style=""><?php echo "USN  :"; echo $_POST["usn"]; ?></h4> -->
 
 <form method="post" name="myForm" id="myForm" action="submit.php">  
- <input  type="hidden" name="firstname" value=<?php echo $_POST["firstname"]; ?>>
- <input  type="hidden" name="lastname" value=<?php echo $_POST["lastname"]; ?>>
- <input  type="hidden" name="email" value=<?php echo $_POST["email"]; ?>>
- <input  type="hidden" name="phone" value=<?php echo $_POST["phone"]; ?>>
-<input  type="hidden" name="usn" value=<?php echo $_POST["usn"]; ?>>
+ <input  type="hidden" id="firstname" name="firstname" value=<?php echo $_POST["firstname"]; ?>>
+ <input  type="hidden" id="lastname" name="lastname" value=<?php echo $_POST["lastname"]; ?>>
+ <input  type="hidden" id="email" name="email" value=<?php echo $_POST["email"]; ?>>
+ <input  type="hidden" id="phone" name="phone" value=<?php echo $_POST["phone"]; ?>>
+<input  type="hidden" id="usn" name="usn" value=<?php echo $_POST["usn"]; ?>>
 
-<input  type="hidden" name="multiple_choice_easy_count" value=<?php echo count($random_que[0]['multi_choice_easy']); ?>>
-<input  type="hidden" name="multiple_choice_medium_count" value=<?php echo count($random_que[0]['multi_choice_medium']); ?>>
-<input  type="hidden" name="multiple_choice_difficult_count" value=<?php echo count($random_que[0]['multi_choice_difficult']); ?>>
-<input  type="hidden" name="input_count" value=<?php echo count($random_que[0]['input']); ?>>
+<input  type="hidden" id="multiple_choice_easy_count" name="multiple_choice_easy_count" value=<?php echo count($random_que[0]['multi_choice_easy']); ?>>
+<input  type="hidden" id="multiple_choice_medium_count" name="multiple_choice_medium_count" value=<?php echo count($random_que[0]['multi_choice_medium']); ?>>
+<input  type="hidden" id="multiple_choice_difficult_count" name="multiple_choice_difficult_count" value=<?php echo count($random_que[0]['multi_choice_difficult']); ?>>
+<input  type="hidden" id="input_count" name="input_count" value=<?php echo count($random_que[0]['input']); ?>>
 
  
 <br>
