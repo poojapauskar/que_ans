@@ -215,7 +215,46 @@ window.setInterval(function(){
             
   }
 
+  for (var x = 0; x < 1; x++) { 
+      iq1="input_que".concat(x);
+      ia1="input_ans".concat(x);
+      
+      var iq = document.myForm.elements[iq1];
+      var ia = document.myForm.elements[ia1];
 
+ 
+
+      var value_iq=iq.value;
+      question1= question1.concat(value_iq);
+      /*console.log(question1);*/
+
+      var value_ia=ia.value;
+      if(value_ia == ''){
+        answer1= answer1.concat("Not Answered");
+      }else{
+        answer1= answer1.concat(value_ia);
+      }
+      
+      /*console.log(correct1);*/ 
+
+      
+      var ic="Input";
+      correct1= correct1.concat(ic);
+      /*console.log(correct1);*/
+
+            
+  }
+
+
+  var bracket1="{";
+  var bracket2="}";
+  question1=question1.toString();
+  answer1=answer1.toString();
+  correct1=correct1.toString();
+
+  question1=(bracket1.concat(question1)).concat(bracket2);
+  answer1=(bracket1.concat(answer1)).concat(bracket2);
+  correct1=(bracket1.concat(correct1)).concat(bracket2);
 
   alert(question1);
   alert(answer1);
