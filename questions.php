@@ -103,7 +103,7 @@ window.setInterval(function(){
           /*alert(mae[a].value);*/
           var value_mae=mae[a].value;
           /*alert(value_mae);*/
-          answer1=answer1.concat.call(value_mae);
+          answer1=answer1.concat(value_mae);
           /*alert(answer1);*/
 
           count++;
@@ -129,9 +129,97 @@ window.setInterval(function(){
             
   }
 
-  /*alert(question1);
+  for (var x = 0; x < mcm_count; x++) { 
+      mam1="multiple_ans_medium".concat(x);
+      mqm1="multiple_que_medium".concat(x);
+      mcm1="multiple_correct_ans_medium".concat(x);
+      var mam = document.myForm.elements[mam1];
+      var mqm = document.myForm.elements[mqm1];
+      var mcm = document.myForm.elements[mcm1];
+
+      count=0;
+
+      for(var a=0;a<4;a++){
+        
+
+        if(mam[a].checked==true){
+          /*alert(mae[a].value);*/
+          var value_mam=mam[a].value;
+          /*alert(value_mae);*/
+          answer1=answer1.concat(value_mam);
+          /*alert(answer1);*/
+
+          count++;
+        };
+      } 
+
+      var value_mqm=mqm.value;
+      question1= question1.concat(value_mqm);
+      /*console.log(question1);*/
+
+      var value_mcm=mcm.value;
+      correct1= correct1.concat(value_mcm);
+      /*console.log(correct1);*/ 
+
+      /*alert(mqe.value);*/
+      if(count == 0){
+        answer1=answer1.concat('Not Answered');
+        /*console.log(answer1);*/
+        /*alert("Not Answered");*/
+      } 
+      /*alert(mce.value);*/
+
+            
+  }
+
+  for (var x = 0; x < mcd_count; x++) { 
+      mad1="multiple_ans_difficult".concat(x);
+      mqd1="multiple_que_difficult".concat(x);
+      mcd1="multiple_correct_ans_difficult".concat(x);
+      var mad = document.myForm.elements[mad1];
+      var mqd = document.myForm.elements[mqd1];
+      var mcd = document.myForm.elements[mcd1];
+
+      count=0;
+
+      for(var a=0;a<4;a++){
+        
+
+        if(mad[a].checked==true){
+          /*alert(mae[a].value);*/
+          var value_mad=mad[a].value;
+          /*alert(value_mae);*/
+          answer1=answer1.concat(value_mad);
+          /*alert(answer1);*/
+
+          count++;
+        };
+      } 
+
+      var value_mqd=mqd.value;
+      question1= question1.concat(value_mqd);
+      /*console.log(question1);*/
+
+      var value_mcd=mcd.value;
+      correct1= correct1.concat(value_mcd);
+      /*console.log(correct1);*/ 
+
+      /*alert(mqe.value);*/
+      if(count == 0){
+        answer1=answer1.concat('Not Answered');
+        /*console.log(answer1);*/
+        /*alert("Not Answered");*/
+      } 
+      /*alert(mce.value);*/
+
+            
+  }
+
+
+
+  alert(question1);
   alert(answer1);
-  alert(correct1);*/
+  alert(correct1);
 
   /*for (var x = 0; x < mce_count; x++) { 
       mam1="multiple_ans_medium".concat(x);
