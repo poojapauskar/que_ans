@@ -161,7 +161,7 @@ if (!$response)
         if($arr9 != ''){
           if($arr9['status'] == 400){
            echo "Session expired";
-          }else{
+          }elseif($arr9['status'] == 200){
             $url_session_0 = 'http://que-ans-project.herokuapp.com/set_session_0/';
             $options_session_0 = array(
               'http' => array(
@@ -175,9 +175,9 @@ if (!$response)
             $output_session_0 = file_get_contents($url_session_0, false,$context_session_0);
 
             $session_0 = json_decode($output_session_0,true);
-            
+
             echo "Thank You";
-          }
+        
         }else{
           echo "Please go back and submit the form again"; 
         }
