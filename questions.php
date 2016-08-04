@@ -452,28 +452,28 @@ document.getElementById("submit").click();
 <?php echo $random_que[0]['multi_choice_easy'][$x]['question'] ?><br>
 
 <?php                      
-if($myArray1[0] == $check_usn[0]['answer_list'][0][0][$x]){
-  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[0].' checked="checked">'.$myArray1[0].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x] == "a"){
+  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value="a" checked="checked">'.$myArray1[0].'<br>';
 }else{
-  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[0].'>'.$myArray1[0].'<br>';
+  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value="a">'.$myArray1[0].'<br>';
 }
 
-if($myArray1[1] == $check_usn[0]['answer_list'][0][0][$x]){
-  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[1].' checked="checked">'.$myArray1[1].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x] == "b"){
+  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value="b" checked="checked">'.$myArray1[1].'<br>';
 }else{
-  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[1].'>'.$myArray1[1].'<br>';
+  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value="b">'.$myArray1[1].'<br>';
 }
 
-if($myArray1[2] == $check_usn[0]['answer_list'][0][0][$x]){
-  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[2].' checked="checked">'.$myArray1[2].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x] == "c"){
+  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value="c" checked="checked">'.$myArray1[2].'<br>';
 }else{
-  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[2].'>'.$myArray1[2].'<br>';
+  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value="c">'.$myArray1[2].'<br>';
 }
 
-if($myArray1[3] == $check_usn[0]['answer_list'][0][0][$x]){
-  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[3].' checked="checked">'.$myArray1[3].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x] == "d"){
+  echo '<input type="radio" name="multiple_ans_easy'.$x.'" value="d" checked="checked">'.$myArray1[3].'<br>';
 }else{
- echo '<input type="radio" name="multiple_ans_easy'.$x.'" value='.$myArray1[3].'>'.$myArray1[3].'<br>';
+ echo '<input type="radio" name="multiple_ans_easy'.$x.'" value="d">'.$myArray1[3].'<br>';
 }  
 ?>                     
                       
@@ -498,28 +498,28 @@ if($myArray1[3] == $check_usn[0]['answer_list'][0][0][$x]){
 <?php echo $random_que[0]['multi_choice_medium'][$x]['question'] ?><br>
                      
 <?php                      
-if($myArray1[0] == $check_usn[0]['answer_list'][0][0][$x+3]){
-  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value='.$myArray1[0].' checked="checked">'.$myArray1[0].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x+3] == "a"){
+  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value="a" checked="checked">'.$myArray1[0].'<br>';
 }else{
-  echo  '<input type="radio" name="multiple_ans_medium'.$x.'" value='.$myArray1[0].'>'.$myArray1[0].'<br>';
+  echo  '<input type="radio" name="multiple_ans_medium'.$x.'" value="a">'.$myArray1[0].'<br>';
 }
 
-if($myArray1[1] == $check_usn[0]['answer_list'][0][0][$x+3]){
-  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value='.$myArray1[1].' checked="checked">'.$myArray1[1].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x+3] == "b"){
+  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value="b" checked="checked">'.$myArray1[1].'<br>';
 }else{
-  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value='.$myArray1[1].'>'.$myArray1[1].'<br>';
+  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value="b">'.$myArray1[1].'<br>';
 }
 
-if($myArray1[2] == $check_usn[0]['answer_list'][0][0][$x+3]){
-  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value='.$myArray1[2].' checked="checked">'.$myArray1[2].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x+3] == "c"){
+  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value="c" checked="checked">'.$myArray1[2].'<br>';
 }else{
-  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value='.$myArray1[2].'>'.$myArray1[2].'<br>';
+  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value="c">'.$myArray1[2].'<br>';
 }
 
-if($myArray1[3] == $check_usn[0]['answer_list'][0][0][$x+3]){
-  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value='.$myArray1[3].' checked="checked">'.$myArray1[3].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x+3] == "d"){
+  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value="d" checked="checked">'.$myArray1[3].'<br>';
 }else{
-  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value='.$myArray1[3].'>'.$myArray1[3].'<br>';
+  echo '<input type="radio" name="multiple_ans_medium'.$x.'" value="d">'.$myArray1[3].'<br>';
 }  
 ?>
 
@@ -544,28 +544,28 @@ if($myArray1[3] == $check_usn[0]['answer_list'][0][0][$x+3]){
 <?php echo $random_que[0]['multi_choice_difficult'][$x]['question'] ?><br>
                    
 <?php
-if($myArray1[0] == $check_usn[0]['answer_list'][0][0][$x+6]){
-  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value='.$myArray1[0].' checked="checked">'.$myArray1[0].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x+6] == "a"){
+  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value="a" checked="checked">'.$myArray1[0].'<br>';
 }else{
-  echo  '<input type="radio" name="multiple_ans_difficult'.$x.'" value='.$myArray1[0].'>'.$myArray1[0].'<br>';
+  echo  '<input type="radio" name="multiple_ans_difficult'.$x.'" value="a">'.$myArray1[0].'<br>';
 }
 
-if($myArray1[1] == $check_usn[0]['answer_list'][0][0][$x+6]){
-  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value='.$myArray1[1].' checked="checked">'.$myArray1[1].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x+6] == "b"){
+  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value="b" checked="checked">'.$myArray1[1].'<br>';
 }else{
-  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value='.$myArray1[1].'>'.$myArray1[1].'<br>';
+  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value="b">'.$myArray1[1].'<br>';
 }
 
-if($myArray1[2] == $check_usn[0]['answer_list'][0][0][$x+6]){
-  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value='.$myArray1[2].' checked="checked">'.$myArray1[2].'<br>';
+if($check_usn[0]['answer_list'][0][0][$x+6] == "c"){
+  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value="c" checked="checked">'.$myArray1[2].'<br>';
 }else{
-  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value='.$myArray1[2].'>'.$myArray1[2].'<br>';
+  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value="c">'.$myArray1[2].'<br>';
 }
 
-if($myArray1[3] == $check_usn[0]['answer_list'][0][0][$x+6]){
-  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value='.$myArray1[3].' checked="checked">'.$myArray1[3].'<br>'; 
+if($check_usn[0]['answer_list'][0][0][$x+6] == "d"){
+  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value="d" checked="checked">'.$myArray1[3].'<br>'; 
 }else{
-  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value='.$myArray1[3].'>'.$myArray1[3].'<br>';
+  echo '<input type="radio" name="multiple_ans_difficult'.$x.'" value="d">'.$myArray1[3].'<br>';
 }  
 ?>
 
