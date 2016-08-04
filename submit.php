@@ -144,7 +144,7 @@ if (!$response)
 
 
 
-		    $url8 = 'http://127.0.0.1:8000/update_details/';
+		    $url8 = 'http://que-ans-project.herokuapp.com/update_details/';
         $data8 = array('seconds'=>$_POST['seconds'],'firstname' => $_POST['firstname'],'lastname' => $_POST['lastname'],'email' => $_POST['email'],'phone' => $_POST['phone'],'usn' => $_POST['usn'],'question_list' => $string_q,'answer_list' => $string_a,'correct_ans_list' => $string_c,'session' => 1);
         // use key 'http' even if you send the request to https://...
         $options8 = array(
@@ -170,7 +170,7 @@ if (!$response)
 
         /*echo $_POST['usn'];*/
 
-        $url_session_0 = 'http://127.0.0.1:8000/set_session_0/';
+        $url_session_0 = 'http://que-ans-project.herokuapp.com/set_session_0/';
         $options_session_0 = array(
           'http' => array(
             'header'  => array(

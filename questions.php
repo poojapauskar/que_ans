@@ -263,7 +263,7 @@ var Url="update.php";
 
 <?php
 
-$url_check_usn = 'http://127.0.0.1:8000/check_usn_exists/';
+$url_check_usn = 'http://que-ans-project.herokuapp.com/check_usn_exists/';
 $options_check_usn = array(
   'http' => array(
     'header'  => array(
@@ -345,7 +345,7 @@ if($check_usn[0]['question_list'] != ''){
 
 <?php
 
-$url_random_que = 'http://127.0.0.1:8000/get_random_que/';
+$url_random_que = 'http://que-ans-project.herokuapp.com/get_random_que/';
 $options_random_que = array(
   'http' => array(
     'header'  => array(
