@@ -8,7 +8,7 @@ header('Access-Control-Allow-Origin: *');
 
 <head>
  <script type="text/javascript" src="require.js"></script>
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ <script src="ajax.js"></script>
 <style>
 
 h2{
