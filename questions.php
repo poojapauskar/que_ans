@@ -312,35 +312,6 @@ var Url="update.php";
             }
 });
 
-  /*for (var x = 0; x < mce_count; x++) { 
-      mam1="multiple_ans_medium".concat(x);
-      mqm1="multiple_que_medium".concat(x);
-      mcm1="multiple_correct_ans_medium".concat(x);
-      var mam = document.myForm.elements[mam1];
-      var mqm = document.myForm.elements[mqm1];
-      var mcm = document.myForm.elements[mcm1];
-
-      for(var a=0;a<4;a++){
-        if(mam[a].checked==true){
-        };
-      }          
-  }
-
-  for (var x = 0; x < mce_count; x++) { 
-      mad1="multiple_ans_difficult".concat(x);
-      mqd1="multiple_que_difficult".concat(x);
-      mcd1="multiple_correct_ans_difficult".concat(x);
-      var mad = document.myForm.elements[mad1];
-      var mqd = document.myForm.elements[mqd1];
-      var mcd = document.myForm.elements[mcd1];
-
-      for(var a=0;a<4;a++){
-        if(mad[a].checked==true){
-        };
-      }          
-  }
-*/
-
 }, 5000);
 
 
@@ -370,9 +341,9 @@ echo $output_check_usn;
 
 $check_usn = json_decode($output_check_usn,true);
 
-/*if($check_usn[0]['status'] == 401){
+if($check_usn[0]['status'] == 401){
    echo "<script> document.location.href='session_exp.php';</script>";
-}*/
+}
 
 /*echo count($random_que[0]['multi_choice_easy']);*/
 ?>

@@ -159,14 +159,18 @@ if (!$response)
        /* echo $result8;*/
         $arr9 = json_decode($result8,true);
         if($arr9 != ''){
-          echo "Thank You";
+          if($arr9['status'] == 400){
+           echo "Session expired";
+          }else{
+            echo "Thank You";
+          }
         }else{
           echo "Please go back and submit the form again"; 
         }
 
         /*echo $_POST['usn'];*/
 
-        /*$url_session_0 = 'http://127.0.0.1:8000/set_session_0/';
+        $url_session_0 = 'http://127.0.0.1:8000/set_session_0/';
         $options_session_0 = array(
           'http' => array(
             'header'  => array(
@@ -178,7 +182,7 @@ if (!$response)
         $context_session_0 = stream_context_create($options_session_0);
         $output_session_0 = file_get_contents($url_session_0, false,$context_session_0);
 
-        $session_0 = json_decode($output_session_0,true);*/
+        $session_0 = json_decode($output_session_0,true);
         
 
 ?>
