@@ -92,7 +92,7 @@ margin-left:-10px;
 </nav>
 
 
-<form id="form1" name="form1" method="post" action="questions.php" style="margin: 60px auto;width: 15%;">
+<form id="form1" name="form1" method="post" onsubmit="return check()" action="questions.php" style="margin: 60px auto;width: 15%;">
 <label>First Name</label><br>
 <input type="text" name="firstname" required/><br>
 <br>
@@ -110,7 +110,7 @@ margin-left:-10px;
 
 
 
-<button class="button" onclick="check()" type="submit">Submit</button>
+<button class="button" type="submit">Submit</button>
 </form>
 </body>
 </html>
