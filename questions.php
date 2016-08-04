@@ -45,30 +45,7 @@ margin-left:-10px;
 </head>
 <body>
 <script type="text/javascript">
-window.onload=counter;
-function counter()
-{
-var seconds = 3600;
-countDown();
-function countDown()
-{
 
-  min= Math.floor(seconds/60);
-  sec= seconds%60;
-document.getElementById("remain").innerHTML=min+"    m :"+sec+"    s";
-if(seconds>0)
-{
-seconds=seconds - 1;
-setTimeout(countDown,1000);
-}
-if(seconds == 0)
-{
-
-document.getElementById("submit").click();
-}
-
-}
-}
 
 
 window.setInterval(function(){
@@ -77,6 +54,8 @@ window.setInterval(function(){
   var e1 = document.getElementById('email').value;
   var p1 = document.getElementById('phone').value;
   var u1 = document.getElementById('usn').value;
+  var s1 = document.getElementById('seconds').value;
+
   var mce_count = document.getElementById('multiple_choice_easy_count').value;
   var mcm_count = document.getElementById('multiple_choice_medium_count').value;
   var mcd_count = document.getElementById('multiple_choice_difficult_count').value;
@@ -301,7 +280,7 @@ var Url="update.php";
   type: "POST",
   url: Url,
   dataType: 'json',
-  data: {firstname:'pooja',lastname:l1,email:e1,phone:p1,usn:u1,question_list:question1,answer_list:answer1,correct_ans_list:correct1,session:1},
+  data: {seconds:s1,firstname:f1,lastname:l1,email:e1,phone:p1,usn:u1,question_list:question1,answer_list:answer1,correct_ans_list:correct1,session:1},
   success: function (obj, textstatus) {
                   if( !('error' in obj) ) {
                       console.log(obj.result);
@@ -337,12 +316,17 @@ $options_check_usn = array(
 );
 $context_check_usn = stream_context_create($options_check_usn);
 $output_check_usn = file_get_contents($url_check_usn, false,$context_check_usn);
-echo $output_check_usn;
+/*echo $output_check_usn;*/
 
 $check_usn = json_decode($output_check_usn,true);
 
 if($check_usn[0]['status'] == 401){
    echo "<script> document.location.href='session_exp.php';</script>";
+}
+
+if($check_usn[0]['status'] == 400){
+  /*echo $check_usn[0]['seconds'][0][0];*/
+  $clock=$check_usn[0]['seconds'][0][0];
 }
 
 /*echo count($random_que[0]['multi_choice_easy']);*/
@@ -374,7 +358,7 @@ echo $array2[1];*/
 
 if($check_usn[0]['question_list'] != ''){
  $string1= $check_usn[0]['question_list'][0][0][0].",".$check_usn[0]['question_list'][0][0][1].",".$check_usn[0]['question_list'][0][0][2];
- echo $string1;
+ /*echo $string1;*/
 }else{
  $string1=$array1[0].",".$array1[1].",".$array1[2];
  $string1=rtrim($string1, ",");
@@ -440,6 +424,39 @@ $random_que = json_decode($output_random_que,true);
 /*echo count($random_que[0]['multi_choice_easy']);*/
 ?>
 
+<script type="text/javascript">
+  window.onload=counter;
+function counter()
+{
+/*var seconds = 3600;*/
+
+var seconds= '<?php echo $clock ?>';
+if(seconds == ''){
+  seconds="3600";
+}
+countDown();
+function countDown()
+{
+  document.getElementById('seconds').value = seconds;
+  
+  min= Math.floor(seconds/60);
+  sec= seconds%60;
+document.getElementById("remain").innerHTML=min+"    m :"+sec+"    s";
+if(seconds>0)
+{
+seconds=seconds - 1;
+setTimeout(countDown,1000);
+}
+if(seconds == 0)
+{
+
+document.getElementById("submit").click();
+}
+
+}
+}
+</script>
+
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -466,6 +483,7 @@ $random_que = json_decode($output_random_que,true);
  <input  type="hidden" id="email" name="email" value=<?php echo $_POST["email"]; ?>>
  <input  type="hidden" id="phone" name="phone" value=<?php echo $_POST["phone"]; ?>>
 <input  type="hidden" id="usn" name="usn" value=<?php echo $_POST["usn"]; ?>>
+<input  type="hidden" id="seconds" name="seconds" value="">
 
 <input  type="hidden" id="multiple_choice_easy_count" name="multiple_choice_easy_count" value=<?php echo count($random_que[0]['multi_choice_easy']); ?>>
 <input  type="hidden" id="multiple_choice_medium_count" name="multiple_choice_medium_count" value=<?php echo count($random_que[0]['multi_choice_medium']); ?>>

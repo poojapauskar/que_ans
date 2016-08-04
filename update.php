@@ -11,7 +11,7 @@
 
     
     $url9 = 'http://127.0.0.1:8000/update_details/';
-    $data9 = array('firstname' => $_POST['firstname'],'lastname' => $_POST['lastname'],'email' => $_POST['email'],'phone' => $_POST['phone'],'usn' => $_POST['usn'],'question_list' => $_POST['question_list'],'answer_list' => $_POST['answer_list'],'correct_ans_list' => $_POST['correct_ans_list'],'session' => 1);
+    $data9 = array('seconds'=>$_POST['seconds'],'firstname' => $_POST['firstname'],'lastname' => $_POST['lastname'],'email' => $_POST['email'],'phone' => $_POST['phone'],'usn' => $_POST['usn'],'question_list' => $_POST['question_list'],'answer_list' => $_POST['answer_list'],'correct_ans_list' => $_POST['correct_ans_list'],'session' => 1);
     // use key 'http' even if you send the request to https://...
     $options9 = array(
       'http' => array(
