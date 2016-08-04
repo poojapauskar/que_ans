@@ -162,6 +162,20 @@ if (!$response)
           if($arr9['status'] == 400){
            echo "Session expired";
           }else{
+            $url_session_0 = 'http://que-ans-project.herokuapp.com/set_session_0/';
+            $options_session_0 = array(
+              'http' => array(
+                'header'  => array(
+                              'USN: '.$_POST['usn'],
+                            ),
+                'method'  => 'GET',
+              ),
+            );
+            $context_session_0 = stream_context_create($options_session_0);
+            $output_session_0 = file_get_contents($url_session_0, false,$context_session_0);
+
+            $session_0 = json_decode($output_session_0,true);
+            
             echo "Thank You";
           }
         }else{
@@ -170,19 +184,7 @@ if (!$response)
 
         /*echo $_POST['usn'];*/
 
-        $url_session_0 = 'http://que-ans-project.herokuapp.com/set_session_0/';
-        $options_session_0 = array(
-          'http' => array(
-            'header'  => array(
-                          'USN: '.$_POST['usn'],
-                        ),
-            'method'  => 'GET',
-          ),
-        );
-        $context_session_0 = stream_context_create($options_session_0);
-        $output_session_0 = file_get_contents($url_session_0, false,$context_session_0);
-
-        $session_0 = json_decode($output_session_0,true);
+        
         
 
 ?>
