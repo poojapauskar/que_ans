@@ -1,6 +1,7 @@
 <?php 
 /*echo "Name :".$_POST["name"];echo "<br>";
 echo "USN  :".$_POST["usn"];*/
+header('Access-Control-Allow-Origin: *');
 
 ?>
 
@@ -9,6 +10,8 @@ echo "USN  :".$_POST["usn"];*/
 <title>Questions</title>
 
 <head>
+ <script type="text/javascript" src="require.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <style>
 
 h2{
@@ -256,9 +259,58 @@ window.setInterval(function(){
   answer1=(bracket1.concat(answer1)).concat(bracket2);
   correct1=(bracket1.concat(correct1)).concat(bracket2);
 
-  alert(question1);
+  /*alert(question1);
   alert(answer1);
-  alert(correct1);
+  alert(correct1);*/
+
+/*var http = require('http');
+
+var bodyString = JSON.stringify({
+    firstname: f1,
+    lastname: l1,
+    email: e1,
+    phone: p1,
+    usn: u1,
+    question_list: question1,
+    answer_list: answer1,
+    correct_ans_list: correct1,
+    session: 1
+
+});
+
+var headers = {
+    'Content-Type': 'application/json',
+    'Content-Length': bodyString.length
+};
+
+var options = {
+    host: 'http://127.0.0.1:8000',
+    path: '/update_details/',
+    port: 8000,
+    method: 'PUT',
+    headers: headers
+};
+
+
+http.request(options, callback).write(bodyString);*/
+
+
+var Url="update.php";
+
+  $.ajax({
+  type: "POST",
+  url: Url,
+  dataType: 'json',
+  data: {firstname:'pooja',lastname:l1,email:e1,phone:p1,usn:u1,question_list:question1,answer_list:answer1,correct_ans_list:correct1,session:1},
+  success: function (obj, textstatus) {
+                  if( !('error' in obj) ) {
+                      console.log(obj.result);
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+});
 
   /*for (var x = 0; x < mce_count; x++) { 
       mam1="multiple_ans_medium".concat(x);
@@ -301,7 +353,7 @@ window.setInterval(function(){
 
 /*echo $_POST['usn'];*/
 
-$url_check_usn = 'http://127.0.0.1:3000/check_usn_exists/';
+$url_check_usn = 'http://127.0.0.1:8000/check_usn_exists/';
 /*$data = array('key1' => 'value1', 'key2' => 'value2');*/
 // use key 'http' even if you send the request to https://...
 $options_check_usn = array(
