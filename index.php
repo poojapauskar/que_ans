@@ -82,7 +82,8 @@ margin-left:-10px;
 
 <?php 
 
-$today = new DateTime();
+// link active for particular period
+/*$today = new DateTime();
 $start = new DateTime("2016-01-01");
 $end = new DateTime("2016-12-31");
 
@@ -91,7 +92,7 @@ if($start <= $today && $today <= $end) {
 }
 else{
   echo "<script> document.location.href='link_expired.php';</script>";
-}
+}*/
 
 ?>
 
