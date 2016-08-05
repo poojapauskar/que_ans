@@ -176,7 +176,7 @@ if (!$response)
 
             $session_0 = json_decode($output_session_0,true);
             
-            echo "Thank You";
+            echo "<script> document.location.href='thank_you.php';</script>";
           }
         }else{
           echo "Please go back and submit the form again"; 
