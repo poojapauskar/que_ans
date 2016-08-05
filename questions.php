@@ -243,14 +243,14 @@ var Url="update.php";
   url: Url,
   dataType: 'json',
   data: {seconds:s1,firstname:f1,lastname:l1,email:e1,phone:p1,usn:u1,question_list:question1,answer_list:answer1,correct_ans_list:correct1,session:1},
-  success: function (obj, textstatus) {
-                  if( !('error' in obj) ) {
-                      console.log(obj.result);
-                  }
-                  else {
-                      console.log(obj.error);
-                  }
-            }
+  success: function(fields){
+    $.each(fields, function(idx, f){
+      /*alert(f.status);*/
+      if(f.status==400){
+        document.location.href='session_exp.php';
+      }
+    });
+  }
 });
 
 }, 5000);
