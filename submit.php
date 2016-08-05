@@ -97,7 +97,7 @@ echo $_POST['usn'];*/
                       array_push($correct_answers, 'Input');
                    
 
-                    if($_POST['input_que'.$x] == ''){
+                    if($_POST['input_ans'.$x] == ''){
                      array_push($answers, 'Not answered');
                     }else{
                         
@@ -156,7 +156,7 @@ if (!$response)
         );
         $context8  = stream_context_create($options8);
         $result8 = file_get_contents($url8, false, $context8);
-       /* echo $result8;*/
+        /*echo $result8;*/
         $arr9 = json_decode($result8,true);
         if($arr9 != ''){
           if($arr9['status'] == 400){
