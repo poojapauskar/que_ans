@@ -35,21 +35,7 @@ h1{
 </head>
 <body>
 
-<title>Thank You</title>
-
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <img alt="Bitjini_logo" src="bitjini_apps_more_logo.png" style="float: right;
-    margin: -6px 30px;">
-      </a>
-    </div>
-  </div>
-</nav>
-
-
-<h1>Thank You</h1>
+<h1>Link Expired</h1>
 </form>
 </body>
 </html>

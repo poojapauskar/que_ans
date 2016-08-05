@@ -80,6 +80,21 @@ margin-left:-10px;
 </head>
 <body>
 
+<?php 
+
+$today = new DateTime();
+$start = new DateTime("2016-01-01");
+$end = new DateTime("2016-12-31");
+
+if($start <= $today && $today <= $end) {
+  //show index.php;
+}
+else{
+  echo "<script> document.location.href='link_expired.php';</script>";
+}
+
+?>
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
