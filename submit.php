@@ -101,7 +101,12 @@ echo $_POST['usn'];*/
                      array_push($answers, 'Not answered');
                     }else{
                         
-                         array_push($answers, $_POST['input_ans'.$x]); 
+                         $replace= str_replace('{','(',$_POST['input_ans'.$x]);
+                         $replace= str_replace('}',')',$replace);
+                         $replace= str_replace('"',"'",$replace);
+
+
+                         array_push($answers, $replace); 
                     }
 
                     ?>

@@ -208,6 +208,13 @@ window.setInterval(function(){
       /*console.log(question1);*/
 
       var value_ia=ia.value;
+
+      for(var nl=0;  nl< value_ia.length; nl++) {
+       value_ia= value_ia.replace("{", "(").replace("}",")").replace('"',"'");
+      }
+
+      
+
       if(value_ia == ''){
         answer1= answer1.concat("Not Answered");
       }else{
