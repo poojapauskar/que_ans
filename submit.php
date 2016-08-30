@@ -104,6 +104,7 @@ echo $_POST['usn'];*/
                          $replace= str_replace('{','(',$_POST['input_ans'.$x]);
                          $replace= str_replace('}',')',$replace);
                          $replace= str_replace('"',"'",$replace);
+                         $replace= str_replace(',',';',$replace);
 
 
                          array_push($answers, $replace); 

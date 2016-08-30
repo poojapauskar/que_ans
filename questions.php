@@ -210,7 +210,7 @@ window.setInterval(function(){
       var value_ia=ia.value;
 
       for(var nl=0;  nl< value_ia.length; nl++) {
-       value_ia= value_ia.replace("{", "(").replace("}",")").replace('"',"'");
+       value_ia= value_ia.replace("{", "(").replace("}",")").replace('"',"'").replace(',',';');
       }
 
       
